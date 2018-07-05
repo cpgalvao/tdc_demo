@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tdc_demo/detail.dart';
+import 'package:tdc_demo/list_item.dart';
 
 void main() => runApp(new MyApp());
 
@@ -62,9 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //      ),
   }
 
-  Widget _getListLayout(BuildContext context) => new Builder(
-          builder: (BuildContext context) {
-        return new ListView(
+  Widget _getListLayout(BuildContext context) =>  new ListView(
           children: ListTile
               .divideTiles(
                   context: context,
@@ -77,20 +77,17 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: new TextStyle(fontSize: 40.0),
                         ),
                         onTap: () {
-                          Scaffold.of(context).showSnackBar(SnackBar(
-                                content: Text(listItem.name),
+                          Navigator.of(context).push(
+                              new PageRouteBuilder<DetailPage>(
+                                pageBuilder: (_, __, ___) =>
+                                new DetailPage(data: listItem),
+                                transitionsBuilder: (context, animation, secondaryAnimation,
+                                    child) =>
+                                new FadeTransition(opacity: animation, child: child),
                               ));
+
                         },
                       )))
               .toList(),
         );
-      });
-}
-
-class ListItem {
-  ListItem({this.emoji, this.name, this.price});
-
-  final String emoji;
-  final String name;
-  double price;
 }
