@@ -64,30 +64,34 @@ class _MyHomePageState extends State<MyHomePage> {
 //      ),
   }
 
-  Widget _getListLayout(BuildContext context) =>  new ListView(
-          children: ListTile
-              .divideTiles(
-                  context: context,
-                  color: Colors.black,
-                  tiles: _list.map<Widget>((listItem) => new ListTile(
-                        title: new Text(listItem.name),
-                        subtitle: new Text(listItem.price.toString()),
-                        leading: new Text(
+  Widget _getListLayout(BuildContext context) => new ListView(
+        children: ListTile
+            .divideTiles(
+                context: context,
+                color: Colors.black,
+                tiles: _list.map<Widget>((listItem) => new ListTile(
+                      title: new Text(listItem.name),
+                      subtitle: new Text(listItem.price.toString()),
+                      leading: new Hero(
+                        tag: listItem.name,
+                        child: new Text(
                           listItem.emoji,
                           style: new TextStyle(fontSize: 40.0),
                         ),
-                        onTap: () {
-                          Navigator.of(context).push(
-                              new PageRouteBuilder<DetailPage>(
-                                pageBuilder: (_, __, ___) =>
-                                new DetailPage(data: listItem),
-                                transitionsBuilder: (context, animation, secondaryAnimation,
-                                    child) =>
-                                new FadeTransition(opacity: animation, child: child),
-                              ));
-
-                        },
-                      )))
-              .toList(),
-        );
+                      ),
+                      onTap: () {
+                        Navigator
+                            .of(context)
+                            .push(new PageRouteBuilder<DetailPage>(
+                              pageBuilder: (_, __, ___) =>
+                                  new DetailPage(data: listItem),
+                              transitionsBuilder: (context, animation,
+                                      secondaryAnimation, child) =>
+                                  new FadeTransition(
+                                      opacity: animation, child: child),
+                            ));
+                      },
+                    )))
+            .toList(),
+      );
 }

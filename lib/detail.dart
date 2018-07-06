@@ -12,11 +12,33 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPage extends State<DetailPage> {
   @override
-  Widget build(BuildContext context) =>
-      new Scaffold(
-          appBar: new AppBar(
-            title: new Text("Flutter TDC Demo"),
-          ),
-          body: new Text(widget.data.name),
+  Widget build(BuildContext context) => new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Flutter TDC Demo"),
+        ),
+        body: new Container(
+            alignment: Alignment.center,
+            child: new Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Hero(
+                  tag: widget.data.name,
+                  child: new Text(
+                    widget.data.emoji,
+                    style: new TextStyle(fontSize: 80.0),
+                  ),
+                ),
+                new Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  child: new Text(
+                    widget.data.name,
+                  ),
+                ),
+                new Text(
+                  widget.data.price.toString(),
+                  style: new TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            )),
       );
 }
