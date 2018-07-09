@@ -1,14 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NativePage extends StatefulWidget {
   @override
-  _NativePageState createState() => _NativePageState();
+  NativePageState createState() => NativePageState();
 }
 
-class _NativePageState extends State<NativePage> {
+class NativePageState extends State<NativePage> {
   static const platform = const MethodChannel('tdc_demo_channel');
   String _message = "waiting native call...";
+
+  NativePageState() {
+    platform.setMethodCallHandler(_handlerNativeCall);
+  }
+
+  Future<dynamic> _handlerNativeCall(MethodCall call) async {
+    switch (call.method) {
+      case "getFlutterText":
+        return new Future.value("\n\nMétodo Flutter, parâmetro: ${call.arguments}");
+    }
+  }
 
   @override
   Widget build(BuildContext context) => new Scaffold(
@@ -21,7 +34,7 @@ class _NativePageState extends State<NativePage> {
           children: <Widget>[
             new RaisedButton(
               onPressed: () {
-                _getNativeText();
+                _getNativeText("FlutterParam");
               },
               child: new Text('Native call'),
             ),
@@ -33,11 +46,11 @@ class _NativePageState extends State<NativePage> {
         )),
       );
 
-  _getNativeText() async {
+  _getNativeText(String param) async {
     String nativeText;
     try {
-      final String result = await platform.invokeMethod('getNativeText');
-      nativeText = 'Texto da plataforma: $result.';
+      final String result = await platform.invokeMethod('getNativeText', param);
+      nativeText = 'Texto final recebido do Nativo:\n\n$result';
     } on PlatformException catch (e) {
       nativeText = "Falha na leitura do texto da plataforma: '${e.message}'.";
     }

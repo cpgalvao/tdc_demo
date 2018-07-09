@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="platform_string">Método Android, parâmetro:</string>
+    <string name="platform_parameter_string">AndroidParam</string>
+
+</resources>
