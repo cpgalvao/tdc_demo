@@ -23,9 +23,12 @@ class _DetailPage extends State<DetailPage> {
               children: <Widget>[
                 new Hero(
                   tag: widget.data.name,
-                  child: new Text(
+                  child: new Material(
+                    color: Colors.transparent,
+                    child: new Text(
                     widget.data.emoji,
                     style: new TextStyle(fontSize: 80.0),
+                  ),
                   ),
                 ),
                 new Padding(

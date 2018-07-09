@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tdc_demo/about.dart';
 import 'package:tdc_demo/detail.dart';
 import 'package:tdc_demo/list_item.dart';
 
@@ -53,6 +54,21 @@ class _MyHomePageState extends State<MyHomePage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Flutter TDC Demo"),
+        actions: <Widget>[IconButton(
+          icon: Icon(Icons.help_outline),
+          onPressed: () {
+            Navigator
+                .of(context)
+                .push(new PageRouteBuilder<AboutPage>(
+              pageBuilder: (_, __, ___) =>
+              new AboutPage(),
+              transitionsBuilder: (context, animation,
+                  secondaryAnimation, child) =>
+              new FadeTransition(
+                  opacity: animation, child: child),
+            ));
+          },
+        ),],
       ),
       body: _getListLayout(context),
     );
@@ -74,9 +90,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       subtitle: new Text(listItem.price.toString()),
                       leading: new Hero(
                         tag: listItem.name,
-                        child: new Text(
-                          listItem.emoji,
-                          style: new TextStyle(fontSize: 40.0),
+                        child: new Material(
+                            child: new Text(
+                            listItem.emoji,
+                            style: new TextStyle(fontSize: 40.0),
+                          ),
                         ),
                       ),
                       onTap: () {
