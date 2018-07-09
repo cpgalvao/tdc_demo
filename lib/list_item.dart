@@ -1,7 +1,8 @@
 class ListItem {
-  ListItem({this.emoji, this.name, this.price});
+  ListItem({this.emoji, this.name, this.price, this.availableNumber});
 
   final String emoji;
   final String name;
-  double price;
+  final double price;
+  int availableNumber;
 }

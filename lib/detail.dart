@@ -11,6 +11,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPage extends State<DetailPage> {
+  int _fruitNumber = 0;
+
   @override
   Widget build(BuildContext context) => new Scaffold(
         appBar: new AppBar(
@@ -26,9 +28,9 @@ class _DetailPage extends State<DetailPage> {
                   child: new Material(
                     color: Colors.transparent,
                     child: new Text(
-                    widget.data.emoji,
-                    style: new TextStyle(fontSize: 80.0),
-                  ),
+                      widget.data.emoji,
+                      style: new TextStyle(fontSize: 80.0),
+                    ),
                   ),
                 ),
                 new Padding(
@@ -37,11 +39,30 @@ class _DetailPage extends State<DetailPage> {
                     widget.data.name,
                   ),
                 ),
+                new Padding(
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  child: new Text(
+                    '${_fruitNumber}/${widget.data.availableNumber.toString()}',
+                  ),
+                ),
                 new Text(
-                  widget.data.price.toString(),
+                  'R\$ ${widget.data.price.toString()}',
                   style: new TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             )),
+        floatingActionButton: new FloatingActionButton(
+          onPressed: _buyItem,
+          tooltip: 'Buy',
+          child: new Icon(Icons.add),
+        ),
       );
+
+  void _buyItem() {
+    setState(() {
+      if (_fruitNumber < widget.data.availableNumber) {
+        _fruitNumber++;
+      }
+    });
+  }
 }

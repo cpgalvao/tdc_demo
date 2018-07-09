@@ -38,13 +38,13 @@ class _MyHomePageState extends State<MyHomePage> {
     List<ListItem> list = <ListItem>[];
 
     list
-      ..add(new ListItem(emoji: "🍓", name: "Morango", price: 3.99))
-      ..add(new ListItem(emoji: "🍒", name: "Cereja", price: 5.99))
-      ..add(new ListItem(emoji: "🍑", name: "Pêssego", price: 8.99))
-      ..add(new ListItem(emoji: "🍇", name: "Uva", price: 4.99))
-      ..add(new ListItem(emoji: "🍋", name: "Limão", price: 2.99))
-      ..add(new ListItem(emoji: "🍎", name: "Maçã", price: 3.49))
-      ..add(new ListItem(emoji: "🍉", name: "Melancia", price: 6.99));
+      ..add(new ListItem(emoji: "🍓", name: "Morango", price: 3.99, availableNumber: 10))
+      ..add(new ListItem(emoji: "🍒", name: "Cereja", price: 5.99, availableNumber: 10))
+      ..add(new ListItem(emoji: "🍑", name: "Pêssego", price: 8.99, availableNumber: 10))
+      ..add(new ListItem(emoji: "🍇", name: "Uva", price: 4.99, availableNumber: 10))
+      ..add(new ListItem(emoji: "🍋", name: "Limão", price: 2.99, availableNumber: 10))
+      ..add(new ListItem(emoji: "🍎", name: "Maçã", price: 3.49, availableNumber: 10))
+      ..add(new ListItem(emoji: "🍉", name: "Melancia", price: 6.99, availableNumber: 10));
 
     return list;
   }
@@ -72,12 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _getListLayout(context),
     );
-
-//      floatingActionButton: new FloatingActionButton(
-//        onPressed: _incrementCounter,
-//        tooltip: 'Increment',
-//        child: new Icon(Icons.add),
-//      ),
   }
 
   Widget _getListLayout(BuildContext context) => new ListView(
