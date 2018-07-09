@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tdc_demo/about.dart';
 import 'package:tdc_demo/detail.dart';
 import 'package:tdc_demo/list_item.dart';
+import 'package:tdc_demo/native.dart';
 
 void main() => runApp(new MyApp());
 
@@ -38,41 +39,61 @@ class _MyHomePageState extends State<MyHomePage> {
     List<ListItem> list = <ListItem>[];
 
     list
-      ..add(new ListItem(emoji: "🍓", name: "Morango", price: 3.99, availableNumber: 10))
-      ..add(new ListItem(emoji: "🍒", name: "Cereja", price: 5.99, availableNumber: 10))
-      ..add(new ListItem(emoji: "🍑", name: "Pêssego", price: 8.99, availableNumber: 10))
-      ..add(new ListItem(emoji: "🍇", name: "Uva", price: 4.99, availableNumber: 10))
-      ..add(new ListItem(emoji: "🍋", name: "Limão", price: 2.99, availableNumber: 10))
-      ..add(new ListItem(emoji: "🍎", name: "Maçã", price: 3.49, availableNumber: 10))
-      ..add(new ListItem(emoji: "🍉", name: "Melancia", price: 6.99, availableNumber: 10));
+      ..add(new ListItem(
+          emoji: "🍓", name: "Morango", price: 3.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍒", name: "Cereja", price: 5.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍑", name: "Pêssego", price: 8.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍇", name: "Uva", price: 4.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍋", name: "Limão", price: 2.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍎", name: "Maçã", price: 3.49, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍉", name: "Melancia", price: 6.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍈", name: "Melão", price: 6.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍍", name: "Abacaxi", price: 6.99, availableNumber: 10))
+      ..add(new ListItem(
+          emoji: "🍊", name: "Laranja", price: 6.99, availableNumber: 10));
 
     return list;
   }
 
   @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Flutter TDC Demo"),
-        actions: <Widget>[IconButton(
-          icon: Icon(Icons.help_outline),
-          onPressed: () {
-            Navigator
-                .of(context)
-                .push(new PageRouteBuilder<AboutPage>(
-              pageBuilder: (_, __, ___) =>
-              new AboutPage(),
-              transitionsBuilder: (context, animation,
-                  secondaryAnimation, child) =>
-              new FadeTransition(
-                  opacity: animation, child: child),
-            ));
-          },
-        ),],
-      ),
-      body: _getListLayout(context),
-    );
-  }
+  Widget build(BuildContext context) => new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Flutter TDC Demo"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.help_outline),
+              onPressed: () {
+                Navigator.of(context).push(new PageRouteBuilder<AboutPage>(
+                      pageBuilder: (_, __, ___) => new AboutPage(),
+                      transitionsBuilder: (context, animation,
+                              secondaryAnimation, child) =>
+                          new FadeTransition(opacity: animation, child: child),
+                    ));
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.android),
+              onPressed: () {
+                Navigator.of(context).push(new PageRouteBuilder<NativePage>(
+                      pageBuilder: (_, __, ___) => new NativePage(),
+                      transitionsBuilder: (context, animation,
+                              secondaryAnimation, child) =>
+                          new FadeTransition(opacity: animation, child: child),
+                    ));
+              },
+            ),
+          ],
+        ),
+        body: _getListLayout(context),
+      );
 
   Widget _getListLayout(BuildContext context) => new ListView(
         children: ListTile
@@ -85,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       leading: new Hero(
                         tag: listItem.name,
                         child: new Material(
-                            child: new Text(
+                          child: new Text(
                             listItem.emoji,
                             style: new TextStyle(fontSize: 40.0),
                           ),
