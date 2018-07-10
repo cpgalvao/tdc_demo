@@ -18,8 +18,8 @@ import Flutter
             var resultString = "Método iOS, parâmetro:"
             resultString += " \(call.arguments ?? "")"
             
-            channel.invokeMethod("getFlutterText", arguments: "iOSParam", result: { result in
-                resultString += " \(result ?? "")"
+            channel.invokeMethod("getFlutterText", arguments: "iOSParam", result: { res in
+                resultString += " \(res ?? "")"
                 result(resultString)
             })
             
