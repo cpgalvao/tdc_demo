@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Flutter TDC Demo"),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter TDC Demo"),
         ),
-        body: new Container(
+        body: Container(
             alignment: Alignment.center,
-            child: new Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new Text(
+                Text(
                   "App demo para o TDC",
-                  style: new TextStyle(fontSize: 30.0),
+                  style: TextStyle(fontSize: 30.0),
                 ),
-                new Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 30.0),
-                  child: new Text("Desenvolvido por:"),
+                  child: Text("Desenvolvido por:"),
                 ),
-                new Text(
+                Text(
                   "Cícero Duarte da Silva\n\nCinthia Pineroli Galvão",
-                  style: new TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             )),

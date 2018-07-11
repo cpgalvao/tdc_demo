@@ -7,54 +7,54 @@ class DetailPage extends StatefulWidget {
   final ListItem data;
 
   @override
-  _DetailPage createState() => new _DetailPage();
+  _DetailPage createState() => _DetailPage();
 }
 
 class _DetailPage extends State<DetailPage> {
   int _fruitNumber = 0;
 
   @override
-  Widget build(BuildContext context) => new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Flutter TDC Demo"),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter TDC Demo"),
         ),
-        body: new Container(
+        body: Container(
             alignment: Alignment.center,
-            child: new Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new Hero(
+                Hero(
                   tag: widget.data.name,
-                  child: new Material(
+                  child: Material(
                     color: Colors.transparent,
-                    child: new Text(
+                    child: Text(
                       widget.data.emoji,
-                      style: new TextStyle(fontSize: 80.0),
+                      style: TextStyle(fontSize: 80.0),
                     ),
                   ),
                 ),
-                new Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 20.0),
-                  child: new Text(
+                  child: Text(
                     widget.data.name,
                   ),
                 ),
-                new Padding(
+                Padding(
                   padding: EdgeInsets.only(bottom: 10.0),
-                  child: new Text(
-                    '${_fruitNumber}/${widget.data.availableNumber.toString()}',
+                  child: Text(
+                    '$_fruitNumber/${widget.data.availableNumber.toString()}',
                   ),
                 ),
-                new Text(
+                Text(
                   'R\$ ${widget.data.price.toString()}',
-                  style: new TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             )),
-        floatingActionButton: new FloatingActionButton(
+        floatingActionButton: FloatingActionButton(
           onPressed: _buyItem,
           tooltip: 'Buy',
-          child: new Icon(Icons.add),
+          child: Icon(Icons.add),
         ),
       );
 
