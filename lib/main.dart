@@ -4,17 +4,17 @@ import 'package:tdc_demo/detail.dart';
 import 'package:tdc_demo/list_item.dart';
 import 'package:tdc_demo/native.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Flutter TDC Demo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Flutter TDC Demo'),
+      home: MyHomePage(title: 'Flutter TDC Demo'),
     );
   }
 }
@@ -25,7 +25,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -39,54 +39,54 @@ class _MyHomePageState extends State<MyHomePage> {
     List<ListItem> list = <ListItem>[];
 
     list
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍓", name: "Morango", price: 3.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍒", name: "Cereja", price: 5.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍑", name: "Pêssego", price: 8.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍇", name: "Uva", price: 4.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍋", name: "Limão", price: 2.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍎", name: "Maçã", price: 3.49, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍉", name: "Melancia", price: 6.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍈", name: "Melão", price: 6.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍍", name: "Abacaxi", price: 6.99, availableNumber: 10))
-      ..add(new ListItem(
+      ..add(ListItem(
           emoji: "🍊", name: "Laranja", price: 6.99, availableNumber: 10));
 
     return list;
   }
 
   @override
-  Widget build(BuildContext context) => new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Flutter TDC Demo"),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter TDC Demo"),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.help_outline),
               onPressed: () {
-                Navigator.of(context).push(new PageRouteBuilder<AboutPage>(
-                      pageBuilder: (_, __, ___) => new AboutPage(),
+                Navigator.of(context).push(PageRouteBuilder<AboutPage>(
+                      pageBuilder: (_, __, ___) => AboutPage(),
                       transitionsBuilder: (context, animation,
                               secondaryAnimation, child) =>
-                          new FadeTransition(opacity: animation, child: child),
+                          FadeTransition(opacity: animation, child: child),
                     ));
               },
             ),
             IconButton(
               icon: Icon(Icons.android),
               onPressed: () {
-                Navigator.of(context).push(new PageRouteBuilder<NativePage>(
-                      pageBuilder: (_, __, ___) => new NativePage(),
+                Navigator.of(context).push(PageRouteBuilder<NativePage>(
+                      pageBuilder: (_, __, ___) => NativePage(),
                       transitionsBuilder: (context, animation,
                               secondaryAnimation, child) =>
-                          new FadeTransition(opacity: animation, child: child),
+                          FadeTransition(opacity: animation, child: child),
                     ));
               },
             ),
@@ -95,32 +95,32 @@ class _MyHomePageState extends State<MyHomePage> {
         body: _getListLayout(context),
       );
 
-  Widget _getListLayout(BuildContext context) => new ListView(
+  Widget _getListLayout(BuildContext context) => ListView(
         children: ListTile
             .divideTiles(
                 context: context,
                 color: Colors.black,
-                tiles: _list.map<Widget>((listItem) => new ListTile(
-                      title: new Text(listItem.name),
-                      subtitle: new Text(listItem.price.toString()),
-                      leading: new Hero(
+                tiles: _list.map<Widget>((listItem) => ListTile(
+                      title: Text(listItem.name),
+                      subtitle: Text(listItem.price.toString()),
+                      leading: Hero(
                         tag: listItem.name,
-                        child: new Material(
-                          child: new Text(
+                        child: Material(
+                          child: Text(
                             listItem.emoji,
-                            style: new TextStyle(fontSize: 40.0),
+                            style: TextStyle(fontSize: 40.0),
                           ),
                         ),
                       ),
                       onTap: () {
                         Navigator
                             .of(context)
-                            .push(new PageRouteBuilder<DetailPage>(
+                            .push(PageRouteBuilder<DetailPage>(
                               pageBuilder: (_, __, ___) =>
-                                  new DetailPage(data: listItem),
+                                  DetailPage(data: listItem),
                               transitionsBuilder: (context, animation,
                                       secondaryAnimation, child) =>
-                                  new FadeTransition(
+                                  FadeTransition(
                                       opacity: animation, child: child),
                             ));
                       },

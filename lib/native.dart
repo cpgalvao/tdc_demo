@@ -19,28 +19,28 @@ class NativePageState extends State<NativePage> {
   Future<dynamic> _handlerNativeCall(MethodCall call) async {
     switch (call.method) {
       case "getFlutterText":
-        return new Future.value("\n\nMétodo Flutter, parâmetro: ${call.arguments}");
+        return Future.value("\n\nMétodo Flutter, parâmetro: ${call.arguments}");
     }
   }
 
   @override
-  Widget build(BuildContext context) => new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Flutter TDC Demo"),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter TDC Demo"),
         ),
-        body: new Center(
-            child: new Column(
+        body: Center(
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new RaisedButton(
+            RaisedButton(
               onPressed: () {
                 _getNativeText("FlutterParam");
               },
-              child: new Text('Native call'),
+              child: Text('Native call'),
             ),
-            new Padding(
+            Padding(
               padding: EdgeInsets.all(50.0),
-              child: new Text(_message),
+              child: Text(_message),
             ),
           ],
         )),
