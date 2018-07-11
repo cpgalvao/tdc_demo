@@ -42,7 +42,7 @@ class _DetailPage extends State<DetailPage> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 10.0),
                   child: Text(
-                    '${_fruitNumber}/${widget.data.availableNumber.toString()}',
+                    '$_fruitNumber/${widget.data.availableNumber.toString()}',
                   ),
                 ),
                 Text(
