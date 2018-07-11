@@ -3,30 +3,24 @@ import Flutter
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
-  override func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
-  ) -> Bool {
+  override func application(_ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
     
-    let controller : FlutterViewController = window?.rootViewController as! FlutterViewController;
-    let channel = FlutterMethodChannel.init(name: "tdc_demo_channel",
-                                                   binaryMessenger: controller);
-    channel.setMethodCallHandler({
-        (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
-        if (call.method == "getNativeText") {
-            var resultString = "Método iOS, parâmetro:"
-            resultString += " \(call.arguments ?? "")"
-            
-            channel.invokeMethod("getFlutterText", arguments: "iOSParam", result: { res in
-                resultString += " \(res ?? "")"
-                result(resultString)
+    guard let controller = window?.rootViewController as? FlutterViewController else {
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    let channel = FlutterMethodChannel(name: "tdc_demo_channel", binaryMessenger: controller)
+    channel.setMethodCallHandler { (call, result) in
+        if call.method == "getNativeText" {
+            channel.invokeMethod("getFlutterText", arguments: "iOSParam", result: {
+                result("Método iOS, parâmetro: \(call.arguments ?? "")" + "\($0 ?? "")")
             })
-            
         } else {
             result(FlutterMethodNotImplemented)
         }
-    });
+    }
     
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
