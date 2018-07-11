@@ -11,6 +11,20 @@ class AboutPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(bottom: 30.0),
+                  child: Image.asset(
+                    "images/flutter.png",
+                    height: 50.0,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 30.0),
+                  child: Image.asset(
+                    "images/eldorado.png",
+                    height: 50.0,
+                  ),
+                ),
                 Text(
                   "App demo para o TDC",
                   style: TextStyle(fontSize: 30.0),
