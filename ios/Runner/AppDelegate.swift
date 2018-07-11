@@ -14,8 +14,11 @@ import Flutter
     let channel = FlutterMethodChannel(name: "tdc_demo_channel", binaryMessenger: controller)
     channel.setMethodCallHandler { (call, result) in
         if call.method == "getNativeText" {
+            
+            let resultString = "Método iOS, parâmetro: \(call.arguments ?? "")"
+            
             channel.invokeMethod("getFlutterText", arguments: "iOSParam", result: {
-                result("Método iOS, parâmetro: \(call.arguments ?? "")" + "\($0 ?? "")")
+                result(resultString + "\($0 ?? "")")
             })
         } else {
             result(FlutterMethodNotImplemented)
