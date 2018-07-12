@@ -48,7 +48,7 @@ class _DetailPage extends State<DetailPage> {
                   ),
                 ),
                 Text(
-                  '${S.of(context).currency} ${widget.data.price.toString()}',
+                  '${S.of(context).currency}\$ ${widget.data.price.toString()}',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],

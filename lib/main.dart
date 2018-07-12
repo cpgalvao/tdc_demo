@@ -144,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       title: Text(listItem.name),
                       subtitle: Text('${S
                       .of(context)
-                      .currency} ${listItem.price}'),
+                      .currency}\$ ${listItem.price}'),
                       leading: Hero(
                         tag: listItem.name,
                         child: Material(

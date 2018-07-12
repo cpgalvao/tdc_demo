@@ -24,7 +24,7 @@ class S implements WidgetsLocalizations {
   String get app_desc => "TDC Demo app";
   String get apple => "Apple";
   String get cherry => "Cherry";
-  String get currency => "S";
+  String get currency => "";
   String get developer => "Developed by:";
   String get flutter_tdc_demo => "Flutter TDC Demo";
   String get grape => "Grape";
@@ -66,7 +66,7 @@ class pt_BR extends S {
   @override
   String get developer => "Desenvolvido por:";
   @override
-  String get currency => "RS";
+  String get currency => "R";
   @override
   String get app_desc => "App demo para o TDC";
   @override
