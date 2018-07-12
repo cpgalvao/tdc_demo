@@ -55,7 +55,7 @@ class _DetailPage extends State<DetailPage> {
             )),
         floatingActionButton: FloatingActionButton(
           onPressed: _buyItem,
-          tooltip: 'Buy',
+          tooltip: S.of(context).buy,
           child: Icon(Icons.add),
         ),
       );
