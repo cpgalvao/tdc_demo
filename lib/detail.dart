@@ -38,6 +38,7 @@ class _DetailPage extends State<DetailPage> {
                   padding: EdgeInsets.symmetric(vertical: 20.0),
                   child: Text(
                     widget.data.name,
+                    style: TextStyle(fontSize: 40.0),
                   ),
                 ),
                 Padding(

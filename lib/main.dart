@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tdc_demo/about.dart';
 import 'package:tdc_demo/detail.dart';
@@ -116,7 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.android),
+            icon: Icon((defaultTargetPlatform == TargetPlatform.android)
+                ? Icons.android
+                : Icons.phone_iphone),
             onPressed: () {
               Navigator.of(context).push(PageRouteBuilder<NativePage>(
                     pageBuilder: (_, __, ___) => NativePage(),
@@ -139,7 +142,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.black,
                 tiles: _list.map<Widget>((listItem) => ListTile(
                       title: Text(listItem.name),
-                      subtitle: Text('${S.of(context).currency} ${listItem.price}'),
+                      subtitle: Text('${S
+                      .of(context)
+                      .currency} ${listItem.price}'),
                       leading: Hero(
                         tag: listItem.name,
                         child: Material(
