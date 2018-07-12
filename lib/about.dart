@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tdc_demo/generated/i18n.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text("Flutter TDC Demo"),
+          title: Text(S.of(context).flutter_tdc_demo),
         ),
         body: Container(
             alignment: Alignment.center,
@@ -26,12 +27,12 @@ class AboutPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "App demo para o TDC",
+                  S.of(context).app_desc,
                   style: TextStyle(fontSize: 30.0),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 30.0),
-                  child: Text("Desenvolvido por:"),
+                  child: Text(S.of(context).developer),
                 ),
                 Text(
                   "Cícero Duarte da Silva\n\nCinthia Pineroli Galvão",

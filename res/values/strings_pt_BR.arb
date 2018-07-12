@@ -1,0 +1,16 @@
+{
+  "app_desc": "App demo para o TDC",
+  "developer": "Desenvolvido por:",
+  "flutter_tdc_demo": "Flutter TDC App Demo",
+  "strawberry": "Morango",
+  "cherry": "Cereja",
+  "peach": "Pêssego",
+  "grape": "Uva",
+  "lemon": "Limão",
+  "apple": "Maçã",
+  "watermelon": "Melancia",
+  "melon": "Melão",
+  "pineapple": "Abacaxi",
+  "orange": "Laranja",
+  "currency": "RS"
+}

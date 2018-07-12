@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tdc_demo/generated/i18n.dart';
 import 'package:tdc_demo/list_item.dart';
 
 class DetailPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _DetailPage extends State<DetailPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text("Flutter TDC Demo"),
+          title: Text(S.of(context).flutter_tdc_demo),
         ),
         body: Container(
             alignment: Alignment.center,
@@ -46,7 +47,7 @@ class _DetailPage extends State<DetailPage> {
                   ),
                 ),
                 Text(
-                  'R\$ ${widget.data.price.toString()}',
+                  '${S.of(context).currency} ${widget.data.price.toString()}',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],

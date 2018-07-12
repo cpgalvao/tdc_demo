@@ -1,1 +1,16 @@
-{}
+{
+  "flutter_tdc_demo": "Flutter TDC Demo",
+  "app_desc": "TDC Demo app",
+  "developer": "Developed by:",
+  "strawberry": "Strawberry",
+  "cherry": "Cherry",
+  "peach": "Peach",
+  "grape": "Grape",
+  "lemon": "Lemon",
+  "apple": "Apple",
+  "watermelon": "Watermelon",
+  "melon": "Melon",
+  "pineapple": "Pineapple",
+  "orange": "Orange",
+  "currency": "S"
+}

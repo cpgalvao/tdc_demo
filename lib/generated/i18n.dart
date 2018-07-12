@@ -21,10 +21,60 @@ class S implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
+  String get app_desc => "TDC Demo app";
+  String get apple => "Apple";
+  String get cherry => "Cherry";
+  String get currency => "S";
+  String get developer => "Developed by:";
+  String get flutter_tdc_demo => "Flutter TDC Demo";
+  String get grape => "Grape";
+  String get lemon => "Lemon";
+  String get melon => "Melon";
+  String get orange => "Orange";
+  String get peach => "Peach";
+  String get pineapple => "Pineapple";
+  String get strawberry => "Strawberry";
+  String get watermelon => "Watermelon";
 }
 
 class en extends S {
   const en();
+}
+
+class pt_BR extends S {
+  const pt_BR();
+
+   @override
+  TextDirection get textDirection => TextDirection.ltr;
+
+  @override
+  String get cherry => "Cereja";
+  @override
+  String get strawberry => "Morango";
+  @override
+  String get peach => "Pêssego";
+  @override
+  String get grape => "Uva";
+  @override
+  String get orange => "Laranja";
+  @override
+  String get apple => "Maçã";
+  @override
+  String get lemon => "Limão";
+  @override
+  String get pineapple => "Abacaxi";
+  @override
+  String get developer => "Desenvolvido por:";
+  @override
+  String get currency => "RS";
+  @override
+  String get app_desc => "App demo para o TDC";
+  @override
+  String get watermelon => "Melancia";
+  @override
+  String get melon => "Melão";
+  @override
+  String get flutter_tdc_demo => "Flutter TDC App Demo";
 }
 
 
@@ -35,6 +85,7 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<WidgetsLocali
     return const <Locale>[
 
       const Locale("en", ""),
+      const Locale("pt", "BR"),
 
     ];
   }
@@ -60,6 +111,8 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<WidgetsLocali
 
       case "en":
         return new SynchronousFuture<WidgetsLocalizations>(const en());
+      case "pt_BR":
+        return new SynchronousFuture<WidgetsLocalizations>(const pt_BR());
 
       default:
         return new SynchronousFuture<WidgetsLocalizations>(const S());
