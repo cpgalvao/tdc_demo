@@ -19,41 +19,29 @@ class _DetailPage extends State<DetailPage> {
         appBar: AppBar(
           title: Text(S.of(context).flutter_tdc_demo),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Hero(
-                tag: widget.data.name,
-                child: Material(
-                  color: Colors.transparent,
-                  child: Text(
-                    widget.data.emoji,
-                    style: TextStyle(fontSize: 80.0),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
+        body: Column(
+          children: <Widget>[
+            Hero(
+              tag: widget.data.name,
+              child: Material(
+                color: Colors.transparent,
                 child: Text(
-                  widget.data.name,
-                  style: TextStyle(fontSize: 40.0),
+                  widget.data.emoji,
                 ),
               ),
-              Text(
-                '$_fruitNumber/${widget.data.availableNumber.toString()}',
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  '${S
-                      .of(context)
-                      .currency}\$ ${widget.data.price.toString()}',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                ),
-              ),
-            ],
-          ),
+            ),
+            Text(
+              widget.data.name,
+            ),
+            Text(
+              '$_fruitNumber/${widget.data.availableNumber.toString()}',
+            ),
+            Text(
+              '${S
+                  .of(context)
+                  .currency}\$ ${widget.data.price.toString()}',
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: _buyItem,
