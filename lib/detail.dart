@@ -17,7 +17,7 @@ class _DetailPage extends State<DetailPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(S.of(context).flutter_tdc_demo),
+          title: Text("Comprar"),
         ),
         body: Column(
           children: <Widget>[
@@ -45,7 +45,6 @@ class _DetailPage extends State<DetailPage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: _buyItem,
-          tooltip: S.of(context).buy,
           child: Icon(Icons.add),
         ),
       );

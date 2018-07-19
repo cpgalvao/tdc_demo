@@ -23,7 +23,6 @@ class S implements WidgetsLocalizations {
 
   String get app_desc => "TDC Demo app";
   String get apple => "Apple";
-  String get buy => "Buy";
   String get cherry => "Cherry";
   String get currency => "";
   String get developer => "Developed by:";
@@ -50,8 +49,6 @@ class pt_BR extends S {
 
   @override
   String get cherry => "Cereja";
-  @override
-  String get buy => "Comprar";
   @override
   String get strawberry => "Morango";
   @override
